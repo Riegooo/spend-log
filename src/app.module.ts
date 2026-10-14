@@ -13,6 +13,8 @@ const __dirname = join(__filename, '..');
 
 import { ServeStaticModule } from '@nestjs/serve-static'
 import { join } from 'path';
+import { UserController } from './user/user.controller.js';
+import { UserModule } from './user/user.module.js';
 
 @Module({
   imports: [
@@ -26,9 +28,10 @@ import { join } from 'path';
     }),
 
     ExpenseModule,
-    DatabaseModule
+    DatabaseModule,
+    UserModule
   ],
-  controllers: [AppController],
+  controllers: [AppController, UserController],
   providers: [AppService],
 })
 export class AppModule {}
